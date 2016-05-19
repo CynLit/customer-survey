@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href='https://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black" />
+<link rel="apple-touch-icon" href="happy.png" />
+<title>Happy</title>
+<script type="text/javascript">
+var count1 = 0;
+var count2 =0;
+var count3=0;
+var count4=0;
+
+function countClicks1() {
+ count1 = count1 + 1;
+    document.getElementById("p1").innerHTML = count1;
+}
+
+function countClicks2() {
+ count2 = count2 + 1;
+    document.getElementById("p2").innerHTML = count2;
+}
+    
+function countClicks3() {
+ count3 = count3 + 1;
+    document.getElementById("p3").innerHTML = count3; 
+}
+function countClicks4() {
+ count4 = count4 + 1;
+    document.getElementById("p4").innerHTML = count4; 
+}
+</script>
+
+</head>
+<header>
+<H1>Calificanos</h1>
+<h2>Ayudanos a mejorar</h2>
+</header>
+<body>
+<br>
+<div id="faces">
+<img onclick="javascript:countClicks1();" src="contento.png" alt="alt text" />
+<img onclick="javascript:countClicks2();" src="bien.png" alt="alt text" />
+
+
+<img onclick="javascript:countClicks3();" src="masomenos.png" alt="alt text" />
+
+
+
+<img onclick="javascript:countClicks4();" src="mal.png" alt="alt text" />
+</div>
+<br />
+<div id="resultados">
+Resultados:
+<a id="p1">0    </a>
+<a id="p2">0    </a>
+<a id="p3">0    </a>
+<a id="p4">0    </a>
+
+</body>
+</html>
