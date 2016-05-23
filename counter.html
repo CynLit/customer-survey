@@ -7,58 +7,79 @@
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black" />
 <link rel="apple-touch-icon" href="happy.png" />
-<title>Happy</title>
-<script type="text/javascript">
-var count1 = 0;
-var count2 =0;
-var count3=0;
-var count4=0;
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="script.js"></script>
 
-function countClicks1() {
- count1 = count1 + 1;
-    document.getElementById("p1").innerHTML = count1;
-}
 
-function countClicks2() {
- count2 = count2 + 1;
-    document.getElementById("p2").innerHTML = count2;
-}
-    
-function countClicks3() {
- count3 = count3 + 1;
-    document.getElementById("p3").innerHTML = count3; 
-}
-function countClicks4() {
- count4 = count4 + 1;
-    document.getElementById("p4").innerHTML = count4; 
-}
-</script>
+	<title>Happy</title>
 
 </head>
-<header>
-<H1>Calificanos</h1>
-<h2>Ayudanos a mejorar</h2>
-</header>
+
 <body>
-<br>
-<div id="faces">
-<img onclick="javascript:countClicks1();" src="contento.png" alt="alt text" />
-<img onclick="javascript:countClicks2();" src="bien.png" alt="alt text" />
+	<section class="survey">
+		<header>
+			<H1>&#191;Como Fue Tu Experiencia Hoy?</h1>
+		</header>
+			<div id="faces">
+				<img onclick="javascript:countClicks1(), timestamp();" src="img/contento.png" alt="alt text" />
+				<img onclick="javascript:countClicks2(), timestamp();" src="img/bien.png" alt="alt text" />
+				<img onclick="javascript:countClicks3(), timestamp();" src="img/masomenos.png" alt="alt text" />
+				<img onclick="javascript:countClicks4(), timestamp();" src="img/mal.png" alt="alt text" />
+			</div>
+		
+			<div id="resultados">
+			Resultados:
+				<a id="p1">0</a>
+				<a id="p2">0</a>
+				<a id="p3">0</a>
+				<a id="p4">0</a>
+				<p id="time"></p>
+			</div>
+	</section>
 
+	<section class="gracias">
+		
+			<h1 class="ty">GRACIAS! Que tengas un buen dia!</h1>
+		
+	</section>
 
-<img onclick="javascript:countClicks3();" src="masomenos.png" alt="alt text" />
+<script>
+		var count1 = 0;
+		var count2 = 0;
+		var count3 = 0;
+		var count4 = 0;
+		
+		function timestamp () {
+			var d = new Date();
+			var n = d.toDateString();
+			var t = d.toTimeString();
+			document.getElementById("time").innerHTML = n + " " + t;
+		}
+		
+		function countClicks1() {
+		 count1 = count1 + 1;
+		    document.getElementById("p1").innerHTML = count1;
+		    console.log('this is counter 1');
+		}
+		
+		function countClicks2() {
+		 count2 = count2 + 1;
+		    document.getElementById("p2").innerHTML = count2;
+		    console.log('this is counter 2');
+		}
+		    
+		function countClicks3() {
+		 count3 = count3 + 1;
+		    document.getElementById("p3").innerHTML = count3; 
+		    console.log('this is counter 3');
+		}
 
+		function countClicks4() {
+		 count4 = count4 + 1;
+		    document.getElementById("p4").innerHTML = count4; 
+		    console.log('this is counter 4');
+		}
 
-
-<img onclick="javascript:countClicks4();" src="mal.png" alt="alt text" />
-</div>
-<br />
-<div id="resultados">
-Resultados:
-<a id="p1">0    </a>
-<a id="p2">0    </a>
-<a id="p3">0    </a>
-<a id="p4">0    </a>
-
+</script>
 </body>
 </html>
