@@ -28,17 +28,8 @@
 				<a id="happy"><img onclick="javascript:recordSadClick();" src="img/masomenos.png" alt="alt text" /></a>
 				<a id="happy"><img onclick="javascript:recordAngryClick();" src="img/mal.png" alt="alt text " /></a>
 			</div>
-
-			<!-- <div id="status" name="status">Status Message</div> -->
 		
-			<!-- <div id="resultados">
-				<h1>Resultados:</p>
-				<a id="p1">0</a>
-				<a id="p2">0</a>
-				<a id="p3">0</a>
-				<a id="p4">0</a>
-				<p id="time"></p>
-			</div> -->
+		
 	</section>
 
 	<section class="gracias">
@@ -48,6 +39,9 @@
 <script>
 		
 		var grade;
+		// Need to change to FM url
+		var url = 'http://localhost/~aizat/score.php';
+        var store = "13";
 		
 		function recordHappyClick() {
 		 grade = 3;
@@ -73,35 +67,8 @@
 		}
 
 		function recordGradeToTable () {
-		 
-		 var db = openDatabase('new6', '1.0', 'Test DB', 2 * 1024 * 1024);
-         // var msg;
-           // CHANGE STORE ID "13 = lomas"
-         var store = "13";
          var rating = grade;
-         console.log(rating);
-       	 var time_stamp = new Date();
-			
-         db.transaction(function (tx) {
-         	// console.log(grade);
-            tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, date_time varchar(200), log int, store_location varchar(50))'); 
-            tx.executeSql('INSERT INTO LOGS (id, date_time, log, store_location) VALUES (1, ?, ?, ?)', [time_stamp, rating, store]);
-            // msg = '<p>Log message created and row inserted.</p>';
-            // document.querySelector('#status').innerHTML =  msg;
-         });
-
-         // db.transaction(function (tx) {
-         //    tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
-         //       var len = results.rows.length, i;
-         //       msg = "<p>Found rows: " + len + "</p>";
-         //       document.querySelector('#status').innerHTML +=  msg;
-					
-         //       for (i = 0; i < len; i++){
-         //          msg = "<p><b>" + results.rows.item(i).id + " " + results.rows.item(i).date_time + " " + results.rows.item(i).log + "</b></p>" + results.rows.item(i).store_location;
-         //          document.querySelector('#status').innerHTML +=  msg;
-         //       }
-         //    }, null);
-         // });
+         $.post(url, {store: store, rating: rating});
         }
 
 
