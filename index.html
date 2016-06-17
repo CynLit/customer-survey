@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href='https://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black" />
+<link rel="apple-touch-icon" href="happy.png" />
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+
+<script src="script.js"></script>
+<!-- <script src="../server.js"></script> -->
+
+<title>Happy</title>
+
+</head>
+
+<body>
+	<section class="survey">
+		<header>
+			<H1>&#191;Como Fue Tu Experiencia Hoy?</h1>
+		</header>
+			<div id="faces">
+				<a id="happy"><img onclick="javascript:recordHappyClick();" src="img/contento.png" alt="alt text" /></a>
+				<a id="happy"><img onclick="javascript:recordOkayClick();" src="img/bien.png" alt="alt text" /></a>
+				<a id="happy"><img onclick="javascript:recordSadClick();" src="img/masomenos.png" alt="alt text" /></a>
+				<a id="happy"><img onclick="javascript:recordAngryClick();" src="img/mal.png" alt="alt text " /></a>
+			</div>
+		
+		
+	</section>
+
+	<section class="gracias">
+			<h1 class="ty">GRACIAS! Que tengas un buen dia!</h1>
+	</section>
+
+<script>
+		
+		var grade;
+		// Need to change to FM url
+		var url = 'http://localhost/~aizat/score.php';
+        var store = "13";
+		
+		function recordHappyClick() {
+		 grade = 3;
+		 recordGradeToTable();
+		}
+		
+		function recordOkayClick() {
+		 grade =2;
+		 recordGradeToTable();
+		  
+		}
+		    
+		function recordSadClick() {
+		 grade = 1;
+		 recordGradeToTable();
+		  
+		}
+
+		function recordAngryClick() {
+		  grade = 0;
+		  recordGradeToTable();
+		  
+		}
+
+		function recordGradeToTable () {
+         var rating = grade;
+         $.post(url, {store: store, rating: rating});
+        }
+
+
+</script>
+</body>
+</html>
